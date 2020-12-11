@@ -21,9 +21,9 @@ int main(int argc, char* argv[]) {
         //int a = execvp(argv[1], argv + 1);
         char f[1000];
         f[0] = '\0';
-        char pr[2];
-        //pr[0] = ' ';
-       // pr[1] = '\0';
+
+
+
         for (int i = 1; i < argc; i++)
         {
             strcat(f, argv[i]);
@@ -32,7 +32,11 @@ int main(int argc, char* argv[]) {
                 strcat(f, " ");
             }
         }
-        system(f);
+        int a = system(f);
+        if (a == -1)
+        {
+            perror("system");
+        }
 
         exit(0);
     } else {
@@ -41,7 +45,11 @@ int main(int argc, char* argv[]) {
         clock_gettime(CLOCK_REALTIME, &tp2);
         double time = ((tp2.tv_sec - tp1.tv_sec) + (tp2.tv_nsec - tp1.tv_nsec) * 1e-9);
         struct tms buf;
-        times(&buf);
+        int b = times(&buf);
+        if (b == -1 || b == 127)
+        {
+            perror("times");
+        }
         long int a = sysconf(_SC_CLK_TCK); //число тиков в секунду
         //for (int i = 1; i < argc; i++)
         // {
