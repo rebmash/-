@@ -36,9 +36,9 @@ int main(int argc, char* argv[]) {
         //    printf("%s ", argv[i]);
         //}
         printf("real    %fs\n", time);
-        float t11 = (buf.tms_utime + buf.tms_cutime) / a;
+        double t11 = (buf.tms_utime + buf.tms_cutime) / a;
         printf("user    %fs\n", t11);
-        float t22 = (buf.tms_stime + buf.tms_cstime) / a;
+        double t22 = (buf.tms_stime + buf.tms_cstime) / a;
         printf("sys     %fs\n", t22);
     }
 }
