@@ -33,7 +33,7 @@ int main(int argc, char* argv[]) {
             }
         }
         int a = system(f);
-        if (a == -1)
+        if (a == -1 || a == 127)
         {
             perror("system");
         }
@@ -46,7 +46,7 @@ int main(int argc, char* argv[]) {
         double time = ((tp2.tv_sec - tp1.tv_sec) + (tp2.tv_nsec - tp1.tv_nsec) * 1e-9);
         struct tms buf;
         int b = times(&buf);
-        if (b == -1 || b == 127)
+        if (b == -1)
         {
             perror("times");
         }
