@@ -20,9 +20,10 @@ int main(int argc, char* argv[]) {
 
         //int a = execvp(argv[1], argv + 1);
         char f[1000];
-        f[0] = '\n';
-        char pr[1];
+        f[0] = '\0';
+        char pr[2];
         pr[0] = ' ';
+        pr[1] = '\0';
         for (int i = 1; i < argc; i++)
         {
             strcat(f, argv[i]);
