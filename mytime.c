@@ -22,14 +22,14 @@ int main(int argc, char* argv[]) {
         char f[1000];
         f[0] = '\0';
         char pr[2];
-        pr[0] = ' ';
-        pr[1] = '\0';
+        //pr[0] = ' ';
+       // pr[1] = '\0';
         for (int i = 1; i < argc; i++)
         {
             strcat(f, argv[i]);
             if (i != argc - 1)
             {
-                strcat(f, pr);
+                strcat(f, " ");
             }
         }
         system(f);
