@@ -7,6 +7,7 @@
 #include <sys/times.h>
 #include <pthread.h>
 #include <errno.h>
+#include <string.h>
 int main(int argc, char* argv[]) {
 
     struct timespec tp1;
@@ -17,10 +18,20 @@ int main(int argc, char* argv[]) {
     int k = fork();
     if (k == 0) {
 
-        int a = execvp(argv[1], argv + 1);
-        if (a == -1) {
-            perror("bash");
+        //int a = execvp(argv[1], argv + 1);
+        char f[1000];
+        f[0] = '\n';
+        char pr[1];
+        pr[0] = ' ';
+        for (int i = 1; i < argc; i++)
+        {
+            strcat(f, argv[i]);
+            if (i != argc - 1)
+            {
+                strcat(f, pr);
+            }
         }
+        system(f);
 
         exit(0);
     } else {
