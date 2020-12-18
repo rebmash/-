@@ -30,6 +30,7 @@ int passenger(int i)
     struct sembuf a;
     while(1)
     {
+
         sem_wait(sem0); //Passenger in queue
         perror("sem_wait");
         printf("Pas %d: I'm in the queue\n", i);
@@ -70,13 +71,16 @@ int passenger(int i)
        // semop(id, &a, 1);
         sem_post(sem1);
 
+        
+        printf("Pas %d: I left the trap, Bye!\n", i);
+        sync();
         //a.sem_num = 2;
         //a.sem_op = 1; //выходим из очереди
         //semop(id, &a, 1);
         sem_post(sem2);
-        printf("Pas %d: I left the trap, Bye!\n", i);
-        sync();
+
     }
+    printf("pass");
     //finish
     return 0;
 }
