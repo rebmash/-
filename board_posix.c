@@ -233,6 +233,17 @@ int main(int ac, char *av[])
         return(0);
     }
     wait(0);
-
-
+    int value;
+    sem_getvalue(sem0, &value);
+    printf("val0 - %d\n", value);
+    sem_getvalue(sem1, &value);
+    printf("val1 - %d\n", value);
+    sem_getvalue(sem2, &value);
+    printf("val2 - %d\n", value);
+    sem_getvalue(sem3, &value);
+    printf("val3 - %d\n", value);
+    sem_getvalue(sem4, &value);
+    printf("val4 - %d\n", value);
+    sem_getvalue(sem5, &value);
+    printf("val5 - %d\n", value);
 }
